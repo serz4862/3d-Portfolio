@@ -72,6 +72,14 @@ const services = [
     title: "Javascript Developer",
     icon: creator,
   },
+  {
+    title: "BlockChain Developer",
+    icon: creator,
+  },
+  {
+    title: "Artificial Intelligence",
+    icon: creator,
+  },
 ];
 
 const technologies = [
