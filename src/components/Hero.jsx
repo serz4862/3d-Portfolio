@@ -3,7 +3,8 @@ import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import { motion } from "framer-motion";
 import { personalInfo } from "../constants";
-
+// import myImage from "../assets/myprofile.png";
+import myImage from "../assets/profile.png";
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
@@ -20,9 +21,25 @@ const Hero = () => {
             Hi, I'm{" "}
             <span className="text-electric-purple">{personalInfo.name}</span>
           </h1>
+          <div className="absolute top-5 right-5">
+            <motion.img
+              src={myImage}
+              alt="My Image"
+              className="w-60 h-70 object-contain rounded-full" // added rounded-full for the circular effect
+              initial={{ scale: 0.9 }} // initial scale for animation
+              animate={{ scale: [0.9, 1.1, 0.9] }} // scaling animation
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+            />
+          </div>
           <p className={`${styles.heroSubText} text-white-100 mt-2`}>
-            Innovative {personalInfo.role},building <br className="sm:block hidden" />
-             web and mobile application <br/> and have a expertize <br/> in Blockchain <br/> and AI
+            Innovative {personalInfo.role}, building{" "}
+            <br className="sm:block hidden" />
+            web and mobile application and have a <br /> expertize in <br />{" "}
+            Blockchain <br /> and AI
           </p>
         </div>
       </div>
