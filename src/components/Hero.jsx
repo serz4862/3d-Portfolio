@@ -21,7 +21,7 @@ const Hero = () => {
             Hi, I'm{" "}
             <span className="text-electric-purple">{personalInfo.name}</span>
           </h1>
-          <div className="absolute top-5 right-5">
+          {/* <div className="absolute top-5 right-5">
             <motion.img
               src={myImage}
               alt="My Image"
@@ -34,7 +34,10 @@ const Hero = () => {
                 repeatType: "loop",
               }}
             />
-          </div>
+          </div> */}
+           <div className="absolute top-5 right-5">
+        <img src={myImage} alt="My Image" className="w-40 h-50 object-contain rounded-full" />
+      </div>
           <p className={`${styles.heroSubText} text-white-100 mt-2`}>
             Innovative {personalInfo.role}, building{" "}
             <br className="sm:block hidden" />
