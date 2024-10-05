@@ -26,8 +26,8 @@ const Hero = () => {
               src={myImage}
               alt="My Image"
               className="w-60 h-70 object-contain rounded-full" // added rounded-full for the circular effect
-              initial={{ scale: 0.9 }} // initial scale for animation
-              animate={{ scale: [0.9, 1.1, 0.9] }} // scaling animation
+              initial={{ scale: 0.4 }} // initial scale for animation
+              animate={{ scale: [0.4, 1.2, 0.4] }} // scaling animation
               transition={{
                 duration: 2,
                 repeat: Infinity,
