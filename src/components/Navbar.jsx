@@ -49,7 +49,7 @@ const Navbar = () => {
             className={`text-secondary text-[18px] font-medium cursor-pointer hover:text-white`}
           >
             <a
-             href="https://bit.ly/3SiSd1o"
+             href="http://bit.ly/3WDGw7E"
              download="SauravKumar.pdf"
              target="_blank"
              rel="noopener noreferrer" // Recommended for security reasons
