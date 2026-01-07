@@ -7,6 +7,7 @@ import { EarthCanvas } from "./canvas";
 import emailjs from "@emailjs/browser";
 import { personalInfo, publicUrls } from "../constants";
 import Modal from "./Modal";
+import Toast from "./Toast";
 
 const Contact = () => {
   const formRef = useRef();
@@ -18,6 +19,9 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("success");
   const [modalContent, setModalContent] = useState({
     title: "",
     message: "",
@@ -49,12 +53,9 @@ const Contact = () => {
       )
       .then(
         () => {
-          setModalContent({
-            title: "Success!",
-            message: "Thank you. I will get back to you as soon as possilbe.",
-            buttonText: "Ok",
-          });
-          setIsModalVisible(true);
+          setToastMessage("Message sent successfully! I'll get back to you soon.");
+          setToastType("success");
+          setShowToast(true);
 
           setForm({
             name: "",
@@ -64,13 +65,9 @@ const Contact = () => {
         },
         (error) => {
           console.log("Error while sending mail ", error);
-          setModalContent({
-            title: "Error!",
-            message: "Ahh, something went wrong. Please try again.",
-            buttonText: "Retry",
-          });
-          setIsError(true);
-          setIsModalVisible(true);
+          setToastMessage("Oops! Something went wrong. Please try again.");
+          setToastType("error");
+          setShowToast(true);
         }
       )
       .finally(() => setLoading(false));
@@ -112,65 +109,79 @@ const Contact = () => {
           >
             <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your Name</span>
-              <input
+              <motion.input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
                 placeholder="What's your good name?"
-                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-2 border-transparent focus:border-electric-purple font-medium transition-all duration-300"
+                whileFocus={{ scale: 1.02 }}
               />
             </label>
 
             <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your Email</span>
-              <input
+              <motion.input
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
                 placeholder="What's your web address?"
-                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-2 border-transparent focus:border-electric-purple font-medium transition-all duration-300"
+                whileFocus={{ scale: 1.02 }}
               />
             </label>
 
             <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your Message</span>
-              <textarea
+              <motion.textarea
                 rows={7}
                 name="message"
                 value={form.message}
                 onChange={handleChange}
                 placeholder="What's you want to say?"
-                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-2 border-transparent focus:border-electric-purple font-medium transition-all duration-300 resize-none"
+                whileFocus={{ scale: 1.02 }}
               />
             </label>
 
-            <button
+            <motion.button
               type="submit"
-              className="bg-tertiary py-3 px-8 rounded-xl outline-none text-white font-bold w-fit shadow-md shadow-primary"
+              className="bg-tertiary py-3 px-8 rounded-xl outline-none text-white font-bold w-fit shadow-md shadow-primary green-pink-gradient"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(145, 94, 255, 0.5)" }}
+              whileTap={{ scale: 0.95 }}
+              disabled={loading}
             >
-              {loading ? "Sending..." : "Send"}
-            </button>
+              {loading ? (
+                <span className="flex items-center gap-2">
+                  <motion.span
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                  />
+                  Sending...
+                </span>
+              ) : (
+                "Send Message"
+              )}
+            </motion.button>
           </form>
         </motion.div>
 
         <motion.div
           variants={slideIn("right", "tween", 0.2, 1)}
-          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] relative"
         >
           <EarthCanvas />
         </motion.div>
       </div>
-      {isModalVisible && (
-        <Modal
-          title={modalContent.title}
-          message={modalContent.message}
-          buttonText={modalContent.buttonText}
-          isError={isError}
-          setIsModalVisible={() => setIsModalVisible(false)}
-        />
-      )}
+      <Toast
+        message={toastMessage}
+        type={toastType}
+        isVisible={showToast}
+        onClose={() => setShowToast(false)}
+      />
     </>
   );
 };

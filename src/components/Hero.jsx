@@ -17,10 +17,22 @@ const Hero = () => {
         </div>
 
         <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
+          <motion.h1 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className={`${styles.heroHeadText} text-white`}
+          >
             Hi, I'm{" "}
-            <span className="text-electric-purple">{personalInfo.name}</span>
-          </h1>
+            <motion.span 
+              className="text-electric-purple"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              {personalInfo.name}
+            </motion.span>
+          </motion.h1>
           {/* <div className="absolute top-5 right-5">
             <motion.img
               src={myImage}
@@ -35,15 +47,44 @@ const Hero = () => {
               }}
             />
           </div> */}
-           <div className="absolute top-5 right-5">
-        <img src={myImage} alt="My Image" className="w-40 h-50 object-contain rounded-full" />
-      </div>
-          <p className={`${styles.heroSubText} text-white-100 mt-2`}>
-            Innovative {personalInfo.role}, building{" "}
-            <br className="sm:block hidden" />
-            web and mobile application and have a <br /> expertize in <br />{" "}
-            Blockchain <br /> and AI
-          </p>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, type: "spring", stiffness: 100 }}
+            className="absolute top-5 right-5"
+          >
+            <motion.img 
+              src={myImage} 
+              alt="My Image" 
+              className="w-40 h-50 object-contain rounded-full border-4 border-electric-purple shadow-lg shadow-electric-purple/50" 
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="mt-4"
+          >
+            <motion.span
+              className="inline-block px-4 py-2 mb-4 rounded-full bg-gradient-to-r from-electric-purple to-pink-500 text-white text-sm font-semibold shadow-lg shadow-electric-purple/50"
+              whileHover={{ scale: 1.05 }}
+            >
+              🚀 Available for Freelance Projects
+            </motion.span>
+            <p className={`${styles.heroSubText} text-white-100 mt-4`}>
+              Innovative {personalInfo.role}, building{" "}
+              <br className="sm:block hidden" />
+              world-class web and mobile applications with expertise in{" "}
+              <br className="sm:block hidden" />
+              <span className="text-electric-purple font-semibold">Blockchain</span>,{" "}
+              <span className="text-electric-purple font-semibold">AI/ML</span>,{" "}
+              <span className="text-electric-purple font-semibold">Cloud Infrastructure</span>,{" "}
+              <span className="text-electric-purple font-semibold">React Native</span>, and{" "}
+              <span className="text-electric-purple font-semibold">Node.js</span>
+            </p>
+          </motion.div>
         </div>
       </div>
 

@@ -16,48 +16,70 @@ const ProjectCard = ({
   hosted_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div 
+      variants={fadeIn("up", "spring", index * 0.2, 0.75)}
+      whileHover={{ y: -10 }}
+      transition={{ duration: 0.3 }}
+    >
       <Tilt
         options={{ max: 45, scale: 1, speed: 450 }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full hover:shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300"
       >
-        <div
-          className="relative w-full h-[230px] cursor-pointer"
+        <motion.div
+          className="relative w-full h-[230px] cursor-pointer overflow-hidden rounded-2xl group"
           onClick={() => window.open(hosted_link, "_blank")}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
         >
           <img
             src={image}
             alt="project-image"
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
+            loading="lazy"
           />
 
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <div
+          <motion.div 
+            className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+          >
+            <motion.div
               onClick={() => window.open(hosted_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              className="green-pink-gradient w-16 h-16 rounded-full flex justify-center items-center cursor-pointer shadow-lg"
+              whileHover={{ scale: 1.2, rotate: 360 }}
+              transition={{ duration: 0.5 }}
             >
               <img
                 src={demo}
                 alt="source-code"
                 className="w-1/2 h-1/2 object-contain"
               />
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+          <motion.h3 
+            className="text-white font-bold text-[24px]"
+            whileHover={{ color: "#915eff" }}
+          >
+            {name}
+          </motion.h3>
+          <p className="mt-2 text-secondary text-[14px] leading-relaxed">{description}</p>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <p
+          {tags.map((tag, tagIndex) => (
+            <motion.p
               key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
+              className={`text-[14px] ${tag.color} font-semibold`}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.2 + tagIndex * 0.1 }}
+              whileHover={{ scale: 1.1 }}
             >
               #{tag.name}
-            </p>
+            </motion.p>
           ))}
         </div>
       </Tilt>
@@ -82,11 +104,15 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-20 flex flex-wrap gap-7">
+      <motion.div 
+        className="mt-20 flex flex-wrap gap-7 justify-center"
+        initial="hidden"
+        animate="show"
+      >
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

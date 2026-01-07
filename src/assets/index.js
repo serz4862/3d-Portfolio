@@ -34,11 +34,10 @@ import proximus from "./company/proximus.png";
 
 import aptihealthWeb from "./projects/aptihealthWeb.png";
 import Bookmyjet from "./projects/bookMyJet.png";
+import BadAndDesi from "./company/badanddesi.png";
+import MyLocalForce from "./company/mylocalforce.png";
+import QuantumCapital from "./company/quantumcapital.png";
 import aptihealthApp from "./projects/aptihealthApp.png";
-import zealWeb from "./projects/zealWeb.png";
-import zealApp from "./projects/zealApp.png";
-import rollWeb from "./projects/rollWeb.png";
-import rollApp from "./projects/rollApp.png";
 
 export {
   logo,
@@ -76,8 +75,7 @@ export {
   proximus,
   aptihealthWeb,
   aptihealthApp,
-  zealWeb,
-  zealApp,
-  rollWeb,
-  rollApp,
+  BadAndDesi,
+  MyLocalForce,
+  QuantumCapital,
 };
