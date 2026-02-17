@@ -269,7 +269,7 @@ const projects = [
       },
     ],
     image: BadAndDesi,
-    hosted_link: "https://bad-desi.vercel.app/",
+    hosted_link: "https://www.badanddesi.com/",
   },
   {
     name: "Aptihealth App",
