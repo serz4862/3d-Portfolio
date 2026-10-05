@@ -29,11 +29,13 @@ import {
   quantumcapitalLive,
   linkedIn,
   github,
+  brookfield,
 } from "../assets";
 
 const navigationPaths = {
   home: "/",
   about: "about",
+  profiles: "profiles",
   work: "work",
   contact: "contact",
 };
@@ -42,6 +44,10 @@ export const navLinks = [
   {
     id: navigationPaths.about,
     title: "About",
+  },
+  {
+    id: navigationPaths.profiles,
+    title: "Profiles",
   },
   {
     id: navigationPaths.work,
@@ -221,6 +227,22 @@ const experiences = [
       "Modeled PostgreSQL schemas that kept complex matching logic available and reliable.",
     ],
   },
+  {
+    title: "Database Management & Analyst",
+    company_name: "Brookfield Aviation International",
+    company_website: "https://www.brookfieldav.com/",
+    icon: brookfield,
+    iconBg: "#ffffff",
+    date: "6-month contract",
+    location: "First professional role · Aviation",
+    firstRole: true,
+    points: [
+      "Helped develop an aviation operations database spanning fleet, pilot, and administrator workflows.",
+      "Built and maintained core fleet, pilot, and admin modules for distinct operational user roles.",
+      "Analyzed operational data with Microsoft Excel and Power BI to support accurate, decision-ready reporting.",
+      "Delivered dependable work against project deadlines in a specialist aviation environment.",
+    ],
+  },
 ];
 
 const education = [
@@ -376,13 +398,14 @@ const personalInfo = {
   email: "sauravkumar4862@gmail.com",
   phone: "+91 6207531016",
   role: "Full-Stack AI Engineer",
+  availability: "Open to ambitious product and AI engineering opportunities",
   headlineBits: [
     "agentic systems",
     "RAG pipelines",
     "0-to-1 products",
     "cloud systems",
   ],
-  about: `Agency founder of AiGenC and a full-stack AI engineer. AiGenC is the operating system I am building for agencies: discovery, outreach, CRM, and delivery in one place, with an agent bot that turns one ideal-customer description into live leads and then waits for a human before anything is sent. Alongside that I ship production applied AI — including a RAG support agent that keeps conversation memory and escalates when its confidence drops.`,
+  about: `I am a full-stack AI engineer and the founder of AiGenC. I build useful, production-ready systems from the first product decision through architecture, interface, deployment, and iteration. My work spans agentic workflows, RAG, React and Next.js products, APIs, and AWS infrastructure — always with a strong bias toward clear user value and dependable delivery.`,
   projectsIntro: `AiGenC is the priority: the agency operating system I founded, and the agent bot inside it. The rest are products I have shipped — performance software, infrastructure intelligence, and earlier platforms.`,
 };
 

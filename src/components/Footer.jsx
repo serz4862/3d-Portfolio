@@ -6,6 +6,7 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "About", href: "#about" },
+    { name: "Profiles", href: "#profiles" },
     { name: "Work", href: "#work" },
     { name: "Skills", href: "#skills" },
     { name: "AI Agents", href: "#agents" },
@@ -89,16 +90,16 @@ const Footer = () => {
                 <span className="text-xl">📧</span>
                 {personalInfo.email}
               </motion.a>
-              <div className="flex gap-4 mt-4">
+              <div className="flex flex-wrap gap-3 mt-4">
                 <motion.a
                   href={publicUrls.socialProfiles.linkedin.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-full bg-tertiary flex items-center justify-center text-xl hover:bg-electric-purple transition-colors duration-300"
+                  className="min-w-[126px] h-11 px-4 rounded-xl bg-[#0A66C2] flex items-center justify-center gap-2 text-sm font-bold text-white transition-colors duration-300"
                 >
-                  💼
+                  LinkedIn ↗
                 </motion.a>
                 <motion.a
                   href={publicUrls.socialProfiles.github.link}
@@ -106,9 +107,9 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-full bg-tertiary flex items-center justify-center text-xl hover:bg-electric-purple transition-colors duration-300"
+                  className="min-w-[126px] h-11 px-4 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center gap-2 text-sm font-bold text-white hover:bg-white/10 transition-colors duration-300"
                 >
-                  💻
+                  GitHub ↗
                 </motion.a>
               </div>
             </div>

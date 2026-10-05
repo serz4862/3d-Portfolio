@@ -61,6 +61,11 @@ const TimelineCard = ({ item }) => {
               Now
             </span>
           )}
+          {item.firstRole && (
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-400/10 text-amber-200 border border-amber-300/30">
+              Career start
+            </span>
+          )}
         </div>
         {item.company_website ? (
           <a

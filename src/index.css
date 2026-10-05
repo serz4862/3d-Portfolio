@@ -11,7 +11,6 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
-  cursor: none;
 }
 
 html,
@@ -26,8 +25,40 @@ body {
   min-height: 100vh;
 }
 
-a, button, .cursor-pointer {
-  cursor: none;
+@media (pointer: fine) {
+  *, a, button, .cursor-pointer {
+    cursor: none;
+  }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+.profile-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 25%, rgba(255, 255, 255, 0.08), transparent 65%);
+  transform: translateX(-100%);
+  transition: transform 700ms ease;
+}
+
+.profile-card:hover::after {
+  transform: translateX(100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Performance optimizations */

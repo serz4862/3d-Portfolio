@@ -11,6 +11,7 @@ import BackToTop from "./components/BackToTop";
 
 // Lazy load components for better performance
 const About = lazy(() => import("./components/About"));
+const ProfessionalProfiles = lazy(() => import("./components/ProfessionalProfiles"));
 const NowBuilding = lazy(() => import("./components/NowBuilding"));
 const Stats = lazy(() => import("./components/Stats"));
 const Experience = lazy(() => import("./components/Experience"));
@@ -18,7 +19,6 @@ const SkillsProgress = lazy(() => import("./components/SkillsProgress"));
 const AgentLab = lazy(() => import("./components/AgentLab"));
 const Tech = lazy(() => import("./components/Tech"));
 const Works = lazy(() => import("./components/Works"));
-const Testimonials = lazy(() => import("./components/Testimonials"));
 const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 const HireMe = lazy(() => import("./components/HireMe"));
@@ -39,6 +39,7 @@ const App = () => {
         <Suspense fallback={<PageLoader />}>
           <div className="bg-primary">
             <About />
+            <ProfessionalProfiles />
             <NowBuilding />
             <Stats />
             <Experience />
@@ -46,7 +47,6 @@ const App = () => {
             <AgentLab />
             <Tech />
             <Works />
-            <Testimonials />
             <div className="relative z-0 bg-primary">
               <Contact />
             </div>
