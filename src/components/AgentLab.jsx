@@ -99,8 +99,8 @@ const AgentLab = () => {
               </p>
             </motion.div>
           </AnimatePresence>
-          <p className="mt-8 text-sm text-white/50">
-            Same loop as the support agent on the Bluemoon work: retrieve, judge confidence, then answer or escalate.
+          <p className="mt-8 text-sm text-white/70 leading-7">
+            Two bots, one habit. On AiGenC the agent bot writes a query per source, retrieves companies, and waits for a person before outreach sends. On the support side, a RAG bot keeps the thread and escalates when confidence drops.
           </p>
         </div>
       </div>

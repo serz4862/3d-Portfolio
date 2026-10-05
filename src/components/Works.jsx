@@ -11,23 +11,31 @@ const ProjectCard = ({
   index,
   name,
   description,
+  agent,
   tags,
   image,
   cover,
   hosted_link,
+  featured,
+  role,
 }) => {
   return (
     <motion.div 
       variants={fadeIn("up", "spring", index * 0.2, 0.75)}
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3 }}
+      className={featured ? "w-full" : ""}
     >
       <Tilt
-        options={{ max: 45, scale: 1, speed: 450 }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full hover:shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300"
+        options={{ max: featured ? 8 : 45, scale: 1, speed: 450 }}
+        className={`bg-tertiary p-5 rounded-2xl w-full hover:shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300 ${
+          featured ? "" : "sm:w-[360px]"
+        }`}
       >
         <motion.div
-          className="relative w-full h-[230px] cursor-pointer overflow-hidden rounded-2xl group"
+          className={`relative w-full cursor-pointer overflow-hidden rounded-2xl group ${
+            featured ? "h-[280px] sm:h-[420px]" : "h-[230px]"
+          }`}
           onClick={() => window.open(hosted_link, "_blank")}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
@@ -74,6 +82,11 @@ const ProjectCard = ({
         </motion.div>
 
         <div className="mt-5">
+          {role && (
+            <p className="text-sky-300 text-xs font-bold tracking-[0.18em] uppercase mb-2">
+              {role} · Priority
+            </p>
+          )}
           <motion.h3 
             className="text-white font-bold text-[24px]"
             whileHover={{ color: "#915eff" }}
@@ -81,6 +94,11 @@ const ProjectCard = ({
             {name}
           </motion.h3>
           <p className="mt-2 text-secondary text-[14px] leading-relaxed">{description}</p>
+          {agent && (
+            <p className="mt-3 text-white/80 text-[14px] leading-relaxed">
+              {agent}
+            </p>
+          )}
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">

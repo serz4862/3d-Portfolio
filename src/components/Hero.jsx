@@ -77,12 +77,20 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="mt-4"
           >
-            <motion.span
-              className="inline-block px-4 py-2 mb-4 rounded-full bg-gradient-to-r from-electric-purple to-pink-500 text-white text-sm font-semibold shadow-lg shadow-electric-purple/50"
-              whileHover={{ scale: 1.05 }}
-            >
-              {personalInfo.role}
-            </motion.span>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <motion.span
+                className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-sky-400 to-electric-purple text-white text-sm font-semibold shadow-lg shadow-electric-purple/50"
+                whileHover={{ scale: 1.05 }}
+              >
+                Agency Founder, AiGenC
+              </motion.span>
+              <motion.span
+                className="inline-block px-4 py-2 rounded-full bg-white/10 text-white text-sm font-semibold border border-white/15"
+                whileHover={{ scale: 1.05 }}
+              >
+                {personalInfo.role}
+              </motion.span>
+            </div>
             <p className={`${styles.heroSubText} text-white-100 mt-4`}>
               I ship{" "}
               <AnimatePresence mode="wait">

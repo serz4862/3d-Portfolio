@@ -23,6 +23,7 @@ import {
   BadAndDesi,
   MyLocalForce,
   QuantumCapital,
+  aigence,
   linkedIn,
   github,
 } from "../assets";
@@ -142,6 +143,21 @@ const technologies = [
 
 const experiences = [
   {
+    title: "Agency Founder",
+    company_name: "AiGenC",
+    company_website: "https://aigence.in/",
+    monogram: "AG",
+    iconBg: "#7dd3fc",
+    date: "Present",
+    location: "Agency Operating System",
+    current: true,
+    points: [
+      "Founding AiGenC, the operating system at aigence.in: lead discovery, outreach, CRM, and delivery in one product.",
+      "Building the agent bot that turns a single ICP into platform-native queries, pulls live sources, and stages CRM-ready companies.",
+      "Keeping a human gate on send so email, WhatsApp, and Telegram only go out after approval.",
+    ],
+  },
+  {
     title: "Full-Stack AI Engineer",
     company_name: "Bluemoon Marketing",
     company_website: "https://kpi.bluemoonmarketing.com.au/",
@@ -220,6 +236,22 @@ const education = [
 ];
 
 const projects = [
+  {
+    name: "AiGenC",
+    featured: true,
+    role: "Agency Founder",
+    description:
+      "Agency operating system I am founding. One product from first signal to shipped work: lead intelligence across maps, directories, LinkedIn, and search, then outreach, CRM, and client delivery without a tool switch.",
+    agent:
+      "The agent bot sits in the middle of that loop. An operator describes who they want once. The bot refines a query per platform, retrieves live companies, and holds every email, WhatsApp, and Telegram draft behind a human approval gate.",
+    tags: [
+      { name: "agentic-ai", color: "blue-text-gradient" },
+      { name: "next.js", color: "green-text-gradient" },
+      { name: "rag", color: "pink-text-gradient" },
+    ],
+    image: aigence,
+    hosted_link: "https://aigence.in/",
+  },
   {
     name: "PerformanceKPI",
     description:
@@ -364,8 +396,8 @@ const personalInfo = {
     "0-to-1 products",
     "cloud systems",
   ],
-  about: `Full-Stack AI Engineer with 4+ years in startup engineering and production applied AI. I take ambiguous 0-to-1 problems and ship scalable cloud systems with Python, TypeScript, and React — agentic systems, robust APIs, and the unglamorous infrastructure that keeps them alive. Right now that means a multi-tenant AI SaaS and a RAG support agent that knows when to hand off to a human.`,
-  projectsIntro: `A few products I have shipped or shaped: marketplaces, service platforms, and early-stage builds. Each one is a live surface, not a mock. They sit next to the day job — applied AI, agentic systems, and the cloud work that keeps startups moving.`,
+  about: `Agency founder of AiGenC and a full-stack AI engineer. AiGenC is the operating system I am building for agencies: discovery, outreach, CRM, and delivery in one place, with an agent bot that turns one ideal-customer description into live leads and then waits for a human before anything is sent. Alongside that I ship production applied AI — including a RAG support agent that keeps conversation memory and escalates when its confidence drops.`,
+  projectsIntro: `AiGenC is the priority: the agency operating system I founded, and the agent bot inside it. The rest are products I have shipped — performance software, infrastructure intelligence, and earlier platforms.`,
 };
 
 const skillLanes = [
@@ -433,7 +465,7 @@ const skillLanes = [
 
 const publicUrls = {
   resume:
-    "https://drive.google.com/file/d/1jx1KaGNw-IbcCYfGc7-QiYGW5PQNe-if/view?usp=sharing",
+    "https://drive.google.com/file/d/1oU0kDS9doLNf8QxSPugLvnyyNrvEcQpc/view?usp=sharing",
   socialProfiles: {
     linkedin: {
       title: "linkedin",

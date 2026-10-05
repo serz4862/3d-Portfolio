@@ -38,6 +38,7 @@ import BadAndDesi from "./company/badanddesi.png";
 import MyLocalForce from "./company/mylocalforce.png";
 import QuantumCapital from "./company/quantumcapital.png";
 import aptihealthApp from "./projects/aptihealthApp.png";
+import aigence from "./projects/aigence.png";
 
 export {
   logo,
@@ -75,6 +76,7 @@ export {
   proximus,
   aptihealthWeb,
   aptihealthApp,
+  aigence,
   BadAndDesi,
   MyLocalForce,
   QuantumCapital,
