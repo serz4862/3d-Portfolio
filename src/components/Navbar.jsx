@@ -65,7 +65,7 @@ const Navbar = () => {
           </Link>
         </motion.div>
 
-        <ul className="list-none hidden sm:flex flex-row gap-10">
+        <ul className="list-none hidden sm:flex flex-row items-center gap-6 lg:gap-10">
           {navLinks.map((link, index) => (
             <motion.li
               key={link.id}
@@ -99,7 +99,7 @@ const Navbar = () => {
               href={publicUrls.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary text-[18px] font-medium cursor-pointer hover:text-electric-purple transition-colors duration-300 green-pink-gradient px-4 py-2 rounded-lg"
+              className="text-white text-[15px] font-semibold cursor-pointer whitespace-nowrap green-pink-gradient px-3 py-1.5 rounded-lg"
             >
               My Resume
             </a>

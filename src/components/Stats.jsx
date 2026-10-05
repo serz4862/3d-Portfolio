@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
 import SectionWrapper from "../hoc/SectionWrapper";
 
-const StatCard = ({ number, label, suffix, delay }) => {
+const StatCard = ({ number, label, suffix, delay, exact }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const target = parseInt(number);
+    if (exact) return undefined;
+    const target = parseInt(number, 10);
     const duration = 2000;
     const steps = 60;
     const increment = target / steps;
@@ -24,7 +25,7 @@ const StatCard = ({ number, label, suffix, delay }) => {
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [number]);
+  }, [number, exact]);
 
   return (
     <motion.div
@@ -37,7 +38,7 @@ const StatCard = ({ number, label, suffix, delay }) => {
           className="text-center"
         >
           <h3 className="text-5xl font-bold text-electric-purple mb-2">
-            {count}{suffix}
+            {exact ? number : count}{suffix}
           </h3>
           <p className="text-secondary text-lg">{label}</p>
         </motion.div>
@@ -49,10 +50,10 @@ const StatCard = ({ number, label, suffix, delay }) => {
 
 const Stats = () => {
   const stats = [
-    { number: "30", label: "Projects Completed", suffix: "+" },
-    { number: "4", label: "Years Experience", suffix: "+" },
-    { number: "10", label: "Happy Clients", suffix: "+" },
-    { number: "15", label: "Technologies", suffix: "+" },
+    { number: "4", label: "Years shipping", suffix: "+" },
+    { number: "4", label: "Startup teams", suffix: "" },
+    { number: "9.33", label: "B.Tech GPA", suffix: "", exact: true },
+    { number: "0", label: "to 1, on repeat", suffix: "→1", exact: true },
   ];
 
   return (
@@ -70,6 +71,7 @@ const Stats = () => {
             label={stat.label}
             suffix={stat.suffix}
             delay={index * 0.2}
+            exact={stat.exact}
           />
         ))}
       </motion.div>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { styles } from "../styles";
 import SectionWrapper from "../hoc/SectionWrapper";
+import { skillGroups } from "../constants";
 
 const SkillBar = ({ name, percentage, delay, icon }) => {
   const [width, setWidth] = useState(0);
@@ -45,16 +46,7 @@ const SkillBar = ({ name, percentage, delay, icon }) => {
 };
 
 const SkillsProgress = () => {
-  const skills = [
-    { name: "React.js & React Native", percentage: 95, icon: "⚛️" },
-    { name: "Next.js & TypeScript", percentage: 93, icon: "📘" },
-    { name: "Node.js & Express", percentage: 92, icon: "🟢" },
-    { name: "Mobile App Development", percentage: 90, icon: "📱" },
-    { name: "Cloud Infrastructure (AWS/Azure)", percentage: 90, icon: "☁️" },
-    { name: "Docker & Kubernetes", percentage: 88, icon: "🐳" },
-    { name: "MongoDB & PostgreSQL", percentage: 87, icon: "🗄️" },
-    { name: "Blockchain & AI/ML", percentage: 85, icon: "🤖" },
-  ];
+  const skills = skillGroups;
 
   return (
     <>

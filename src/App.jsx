@@ -11,6 +11,7 @@ import BackToTop from "./components/BackToTop";
 
 // Lazy load components for better performance
 const About = lazy(() => import("./components/About"));
+const NowBuilding = lazy(() => import("./components/NowBuilding"));
 const Stats = lazy(() => import("./components/Stats"));
 const Experience = lazy(() => import("./components/Experience"));
 const SkillsProgress = lazy(() => import("./components/SkillsProgress"));
@@ -37,6 +38,7 @@ const App = () => {
         <Suspense fallback={<PageLoader />}>
           <div className="bg-primary">
             <About />
+            <NowBuilding />
             <Stats />
             <Experience />
             <SkillsProgress />

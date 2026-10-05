@@ -1,11 +1,21 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { personalInfo } from "../constants";
 // import myImage from "../assets/myprofile.png";
 import myImage from "../assets/profile.png";
 const Hero = () => {
+  const bits = personalInfo.headlineBits;
+  const [bit, setBit] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setBit((current) => (current + 1) % bits.length);
+    }, 2200);
+    return () => clearInterval(timer);
+  }, [bits.length]);
+
   return (
     <section className="relative w-full h-screen mx-auto">
       <div
@@ -51,7 +61,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ delay: 0.3, duration: 0.8, type: "spring", stiffness: 100 }}
-            className="absolute top-5 right-5"
+            className="absolute top-5 right-5 hidden lg:block"
           >
             <motion.img 
               src={myImage} 
@@ -71,18 +81,24 @@ const Hero = () => {
               className="inline-block px-4 py-2 mb-4 rounded-full bg-gradient-to-r from-electric-purple to-pink-500 text-white text-sm font-semibold shadow-lg shadow-electric-purple/50"
               whileHover={{ scale: 1.05 }}
             >
-              🚀 Available for Freelance Projects
+              {personalInfo.role}
             </motion.span>
             <p className={`${styles.heroSubText} text-white-100 mt-4`}>
-              Innovative {personalInfo.role}, building{" "}
+              I ship{" "}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={bits[bit]}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.35 }}
+                  className="inline-block text-electric-purple font-semibold"
+                >
+                  {bits[bit]}
+                </motion.span>
+              </AnimatePresence>
               <br className="sm:block hidden" />
-              world-class web and mobile applications with expertise in{" "}
-              <br className="sm:block hidden" />
-              <span className="text-electric-purple font-semibold">Blockchain</span>,{" "}
-              <span className="text-electric-purple font-semibold">AI/ML</span>,{" "}
-              <span className="text-electric-purple font-semibold">Cloud Infrastructure</span>,{" "}
-              <span className="text-electric-purple font-semibold">React Native</span>, and{" "}
-              <span className="text-electric-purple font-semibold">Node.js</span>
+              for early-stage teams — Python, TypeScript, React, and AWS.
             </p>
           </motion.div>
         </div>

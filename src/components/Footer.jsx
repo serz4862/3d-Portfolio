@@ -41,9 +41,8 @@ const Footer = () => {
               {personalInfo.name}
             </h3>
             <p className="text-secondary text-sm leading-relaxed">
-              Full Stack Developer & Freelancer specializing in React, Node.js, 
-              Blockchain, AI/ML, and Cloud Infrastructure. Building world-class 
-              digital solutions.
+              {personalInfo.role} shipping applied AI, agentic systems,
+              and cloud products for early-stage teams.
             </p>
           </motion.div>
 

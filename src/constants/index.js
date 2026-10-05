@@ -18,7 +18,6 @@ import {
   mysql,
   git,
   bizav,
-  branddy,
   aptihealthApp,
   Bookmyjet,
   BadAndDesi,
@@ -52,35 +51,27 @@ export const navLinks = [
 
 const services = [
   {
-    title: "React & Next.js Developer",
+    title: "Full-Stack AI Engineer",
+    icon: creator,
+  },
+  {
+    title: "Agentic Systems & RAG",
     icon: web,
   },
   {
-    title: "Mobile App Developer",
+    title: "React, Next.js & TypeScript",
     icon: mobile,
   },
   {
-    title: "Node.js Developer",
+    title: "Cloud Systems on AWS",
     icon: backend,
   },
   {
-    title: "Full Stack Developer",
-    icon: creator,
-  },
-  {
-    title: "Blockchain Developer",
-    icon: creator,
-  },
-  {
-    title: "AI & ML Engineer",
-    icon: creator,
-  },
-  {
-    title: "Cloud Infrastructure",
+    title: "APIs & Distributed Systems",
     icon: backend,
   },
   {
-    title: "Docker and Kubernetes",
+    title: "0-to-1 Startup Engineering",
     icon: creator,
   },
 ];
@@ -151,58 +142,77 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Full Stack Developer & Team Lead",
-    company_name: "My Local Force ",
-    company_website: "https://mylocalforce.com.au/",
-    icon: bizav,
-    iconBg: "#E6DEDD",
-    date: "May 2025 - Nov 2025",
+    title: "Full-Stack AI Engineer",
+    company_name: "Bluemoon Marketing",
+    monogram: "BM",
+    iconBg: "#38bdf8",
+    date: "Sep 2025 – Present",
+    location: "Remote, Australia",
+    current: true,
     points: [
-      "Developed comprehensive digital solutions platform using React.js, Next.js, and Node.js for Australian businesses",
-      "Built scalable web applications and mobile applications with modern tech stack including TypeScript, MongoDB,React Native and cloud infrastructure",
-      "Delivered full-stack solutions with responsive design and optimal performance, achieving 40% faster load times",
+      "Building Performance KPI, a multi-tenant AI SaaS on Next.js and AWS that turns messy inputs into leadership briefings.",
+      "Designing agentic systems, including a RAG support agent with conversation memory and confidence-based escalation into developer tooling.",
+      "Owning architecture and deploys with Docker, Nginx, and EC2 for 0-to-1 startup delivery.",
+      "Shipping applied AI that tightens HR performance-management workflows as the data layer scales.",
     ],
   },
   {
-    title: "Software Engineer & Team Lead",
-    company_name: "BookMyJet (Full-time)",
+    title: "Full Stack Developer & Team Lead",
+    company_name: "Fieldnerve",
+    monogram: "FN",
+    iconBg: "#34d399",
+    date: "Sep 2024 – Sep 2026",
+    location: "Gurugram, India",
+    points: [
+      "Founding engineer owning architecture and technical decisions for cloud systems and mobile apps in React and Node.js.",
+      "Turning ambiguous business requirements into documented, scalable systems inside Agile sprints.",
+      "Owning end-to-end deployment and production reliability, and setting Git discipline for the team.",
+      "Building a ground-up engineering culture around testing and code standards so the startup could grow fast.",
+    ],
+  },
+  {
+    title: "Full Stack Developer & Team Lead",
+    company_name: "Bizav International",
     company_website: "https://www.bookmyjet.co/",
     icon: bizav,
     iconBg: "#E6DEDD",
-    date: "Jun 2024 - NOV 2025",
+    date: "Apr 2023 – Aug 2024",
+    location: "New Delhi, India",
     points: [
-      "Leading development of premier aviation marketplace platform using React.js, React Native, Next.js and Node.js",
-      "Built and scaled mobile applications serving thousands of users with real-time booking and charter services",
-      "Architected microservices backend with Node.js and MongoDB, handling high-traffic aviation data",
-      "Mentoring team of 5+ developers, conducting code reviews, and driving adoption of best practices and modern tech stack",
+      "Led a small engineering team building responsive products with React.js and distributed-systems architecture.",
+      "Partnered with product and design to architect high-performance APIs and ship features on aggressive schedules.",
+      "Drove code review standards and CI/CD-oriented Git workflows as headcount grew.",
+      "Tuned MongoDB data infrastructure to improve response times for web and mobile users.",
     ],
   },
   {
-    title: "Senior Full Stack Developer",
-    company_name: "Nebulixus ",
-    company_website: "https://nebulixus.com",
-    icon: branddy,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - May 2024",
+    title: "Full Stack Developer & Team Lead",
+    company_name: "My Local Force",
+    company_website: "https://mylocalforce.com.au/",
+    icon: MyLocalForce,
+    iconBg: "#fbbf24",
+    date: "Jan 2022 – Mar 2023",
+    location: "Remote, Australia",
     points: [
-      "Developed enterprise web and mobile applications using React.js, React Native, Next.js, and TypeScript",
-      "Built scalable SaaS platforms with Node.js, Express, and MongoDB serving 10,000+ active users",
-      "Implemented cloud infrastructure on AWS with CI/CD pipelines, reducing deployment time by 60%",
-      "Led mobile app development projects using React Native, delivering cross-platform solutions for iOS and Android",
+      "Owned frontend architecture and backend APIs for a 0-to-1 platform using React.js and Node.js.",
+      "Designed a recommendation algorithm for service matching and shipped it into production.",
+      "Acted as sole remote technical lead, setting direction for a distributed team.",
+      "Modeled PostgreSQL schemas that kept complex matching logic available and reliable.",
     ],
   },
+];
+
+const education = [
   {
-    title: "Software Developer",
-    company_name: "Branddy (Contract)",
-    company_website: "https://branddy.net/",
-    icon: branddy,
-    iconBg: "#E6DEDD",
-    date: "Dec 2022 - May 2023",
+    title: "B.Tech, Computer Science & Engineering",
+    company_name: "SRM Institute of Science and Technology",
+    monogram: "SRM",
+    iconBg: "#c084fc",
+    date: "Jan 2020 – Jan 2024",
+    location: "Chennai, India",
     points: [
-      "Developed groundbreaking CRM software for Spain-based firm using React.js, Next.js, and Node.js",
-      "Built SaaS platform with MERN stack to manage sales data for multiple clients",
-      "Optimized frontend performance achieving 20% reduction in page load time with Next.js optimization techniques",
-      "Created transaction report generator with Node.js, reducing report generation time by 50%",
+      "Blockchain specialization, GPA 9.33 / 10.",
+      "The foundation under the startup work: systems, data, and shipping under real constraints.",
     ],
   },
 ];
@@ -320,13 +330,26 @@ const personalInfo = {
   name: "Saurav Kumar",
   fullName: "Saurav Kumar",
   email: "sauravkumar4862@gmail.com",
-  role: "Software Developer & Freelancer",
-  about: `I'm a Full Stack Developer, Team Lead, and Freelancer with extensive experience in modern web and mobile application development. Expert in React.js, Next.js, React Native, Node.js, and TypeScript. I specialize in building scalable enterprise applications, mobile apps, and have strong expertise in Artificial Intelligence, Blockchain technologies, Cloud Infrastructure (AWS/Azure), and Web3 development. I've successfully led development teams and delivered innovative solutions for aviation, healthcare, e-commerce, and enterprise sectors worldwide. As a freelancer, I collaborate closely with clients to transform their vision into high-performance, user-centric applications. Let's work together to bring your ideas to life!`,
-  projectsIntro: `Following projects showcase my expertise in web and mobile application development through
-  real-world examples. Each project features modern technologies like Next.js, React Native, and cloud solutions
-  with live demos. These projects reflect my ability to solve complex problems, build scalable applications, 
-  and deliver world-class solutions as both a team lead and freelancer.`,
+  phone: "+91 6207531016",
+  role: "Full-Stack AI Engineer",
+  headlineBits: [
+    "agentic systems",
+    "RAG pipelines",
+    "0-to-1 products",
+    "cloud systems",
+  ],
+  about: `Full-Stack AI Engineer with 4+ years in startup engineering and production applied AI. I take ambiguous 0-to-1 problems and ship scalable cloud systems with Python, TypeScript, and React — agentic systems, robust APIs, and the unglamorous infrastructure that keeps them alive. Right now that means a multi-tenant AI SaaS and a RAG support agent that knows when to hand off to a human.`,
+  projectsIntro: `A few products I have shipped or shaped: marketplaces, service platforms, and early-stage builds. Each one is a live surface, not a mock. They sit next to the day job — applied AI, agentic systems, and the cloud work that keeps startups moving.`,
 };
+
+const skillGroups = [
+  { name: "React, Next.js & TypeScript", percentage: 95, icon: "⚛️" },
+  { name: "Python, LLMs & Agentic Systems", percentage: 92, icon: "🤖" },
+  { name: "LangChain, LangGraph & RAG", percentage: 90, icon: "🧠" },
+  { name: "Node.js, REST & GraphQL", percentage: 92, icon: "🟢" },
+  { name: "AWS, Docker, Nginx & EC2", percentage: 88, icon: "☁️" },
+  { name: "PostgreSQL, MongoDB & Redis", percentage: 87, icon: "🗄️" },
+];
 
 const publicUrls = {
   resume:
@@ -349,8 +372,10 @@ export {
   services,
   technologies,
   experiences,
+  education,
   projects,
   navigationPaths,
   personalInfo,
   publicUrls,
+  skillGroups,
 };
