@@ -29,6 +29,10 @@ body {
   *, a, button, .cursor-pointer {
     cursor: none;
   }
+
+  input, textarea, select {
+    cursor: text;
+  }
 }
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {

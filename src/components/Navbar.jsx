@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { Link } from "react-router-dom";
-import { close, logo, menu } from "../assets";
+import { close, menu } from "../assets";
+import profilePhoto from "../assets/profile.png";
 import {
   navLinks,
   navigationPaths,
@@ -51,12 +52,12 @@ const Navbar = () => {
               window.scrollTo(0, 0);
             }}
           >
-            <motion.img 
-              src={logo} 
-              alt="logo" 
-              className="w-9 h-9 object-contain"
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
+            <motion.img
+              src={profilePhoto}
+              alt="Saurav Kumar"
+              className="h-11 w-11 rounded-full border-2 border-white/20 object-cover object-top shadow-lg shadow-violet-500/20"
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.2 }}
             />
             <p className="text-white text-[18px] font-bold cursor-pointer flex">
               {personalInfo.name} &nbsp;

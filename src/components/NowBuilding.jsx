@@ -1,96 +1,62 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 
-const lines = [
+const shippingNow = [
   {
-    tag: "bluemoon",
-    text: "Performance KPI — an LLM that writes the briefing so a leader does not have to.",
+    label: "Flagship build",
+    title: "AiGenC",
+    copy: "An agency operating system that connects lead discovery, human-approved outreach, CRM, and delivery in one product.",
+    stack: ["Agentic AI", "Next.js", "RAG"],
   },
   {
-    tag: "agent",
-    text: "RAG support agent. It remembers the thread, then escalates only when confidence drops.",
+    label: "In production",
+    title: "Performance KPI",
+    copy: "A multi-tenant performance platform that turns operational inputs into useful leadership briefings.",
+    stack: ["Applied AI", "AWS", "Product"],
   },
   {
-    tag: "ship",
-    text: "Docker, Nginx, EC2. The unglamorous part that makes the clever part stay up.",
-  },
-  {
-    tag: "0→1",
-    text: "Ambiguous problem in. Production system out. That is the whole job.",
+    label: "Agent workflow",
+    title: "Support with judgment",
+    copy: "A memory-aware RAG agent that answers when confidence is high and escalates with context when it is not.",
+    stack: ["Memory", "Retrieval", "Handoff"],
   },
 ];
 
-const NowBuilding = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((current) => (current + 1) % lines.length);
-    }, 3200);
-    return () => clearInterval(timer);
-  }, []);
-
-  const active = lines[index];
-
-  return (
-    <>
-      <p className={styles.sectionSubText}>Currently on the bench</p>
+const NowBuilding = () => (
+  <>
+    <div className="max-w-3xl">
+      <p className={styles.sectionSubText}>Building now</p>
       <h2 className={styles.sectionHeadText}>What I am shipping.</h2>
+      <p className="mt-4 text-[17px] leading-8 text-secondary">
+        Current work, presented without the pitch deck: the product, the problem, and the system behind it.
+      </p>
+    </div>
 
-      <div className="mt-10 max-w-3xl">
-        <div className="rounded-2xl bg-[#0b1020] border border-electric-purple/30 shadow-card overflow-hidden">
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
-            <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-            <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-            <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-            <span className="ml-3 text-xs text-secondary font-mono">
-              saurav@lab — now
-            </span>
-          </div>
-          <div className="px-6 py-8 min-h-[140px] font-mono">
-            <p className="text-sky-300 text-sm mb-3">$ cat ./now.txt</p>
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={active.tag}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.35 }}
-                className="text-white text-lg sm:text-xl leading-relaxed"
-              >
-                <span className="text-electric-purple">[{active.tag}]</span>{" "}
-                {active.text}
-              </motion.p>
-            </AnimatePresence>
-            <motion.span
-              className="inline-block w-2 h-5 bg-electric-purple ml-1 align-middle"
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            />
-          </div>
+    <div className="mt-12 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+      <motion.article whileHover={{ y: -5 }} className="relative overflow-hidden rounded-[30px] border border-sky-400/20 bg-gradient-to-br from-sky-400/15 via-[#11162b] to-electric-purple/10 p-7 sm:p-9">
+        <div className="absolute right-8 top-8 flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" /> Active
         </div>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky-300">{shippingNow[0].label}</p>
+        <h3 className="mt-5 text-4xl font-black text-white sm:text-5xl">{shippingNow[0].title}</h3>
+        <p className="mt-5 max-w-xl text-[16px] leading-8 text-white/70">{shippingNow[0].copy}</p>
+        <div className="mt-8 flex flex-wrap gap-2">{shippingNow[0].stack.map((item) => <span key={item} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/70">{item}</span>)}</div>
+        <a href="https://aigence.in/" target="_blank" rel="noopener noreferrer" className="mt-9 inline-flex items-center gap-2 text-sm font-black text-white">Visit AiGenC <span aria-hidden="true">↗</span></a>
+      </motion.article>
 
-        <div className="mt-6 flex flex-wrap gap-2">
-          {lines.map((line, lineIndex) => (
-            <button
-              key={line.tag}
-              type="button"
-              onClick={() => setIndex(lineIndex)}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide border transition-colors ${
-                lineIndex === index
-                  ? "bg-electric-purple text-white border-electric-purple"
-                  : "text-secondary border-white/15 hover:border-electric-purple/60"
-              }`}
-            >
-              {line.tag}
-            </button>
-          ))}
-        </div>
+      <div className="grid gap-5">
+        {shippingNow.slice(1).map((item) => (
+          <motion.article key={item.title} whileHover={{ x: 5 }} className="rounded-[24px] border border-white/10 bg-white/[0.035] p-6 sm:p-7">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-electric-purple">{item.label}</p>
+            <h3 className="mt-3 text-2xl font-black text-white">{item.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-white/60">{item.copy}</p>
+            <div className="mt-5 flex flex-wrap gap-2">{item.stack.map((tag) => <span key={tag} className="text-xs font-semibold text-sky-300">#{tag.toLowerCase().replace(" ", "-")}</span>)}</div>
+          </motion.article>
+        ))}
       </div>
-    </>
-  );
-};
+    </div>
+  </>
+);
 
 export default SectionWrapper(NowBuilding, "now");

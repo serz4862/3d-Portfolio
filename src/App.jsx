@@ -6,22 +6,18 @@ import PageLoader from "./components/PageLoader";
 import ParticlesBackground from "./components/ParticlesBackground";
 import CustomCursor from "./components/CustomCursor";
 import ScrollProgress from "./components/ScrollProgress";
-import FloatingActions from "./components/FloatingActions";
 import BackToTop from "./components/BackToTop";
 
 // Lazy load components for better performance
 const About = lazy(() => import("./components/About"));
 const ProfessionalProfiles = lazy(() => import("./components/ProfessionalProfiles"));
 const NowBuilding = lazy(() => import("./components/NowBuilding"));
-const Stats = lazy(() => import("./components/Stats"));
 const Experience = lazy(() => import("./components/Experience"));
 const SkillsProgress = lazy(() => import("./components/SkillsProgress"));
 const AgentLab = lazy(() => import("./components/AgentLab"));
-const Tech = lazy(() => import("./components/Tech"));
 const Works = lazy(() => import("./components/Works"));
 const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
-const HireMe = lazy(() => import("./components/HireMe"));
 
 const App = () => {
   return (
@@ -30,7 +26,6 @@ const App = () => {
         <CustomCursor />
         <ScrollProgress />
         <ParticlesBackground />
-        <FloatingActions />
         <BackToTop />
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center relative z-10 bg-primary">
           <Navbar />
@@ -38,20 +33,17 @@ const App = () => {
         </div>
         <Suspense fallback={<PageLoader />}>
           <div className="bg-primary">
-            <About />
             <ProfessionalProfiles />
+            <About />
             <NowBuilding />
-            <Stats />
             <Experience />
             <SkillsProgress />
             <AgentLab />
-            <Tech />
             <Works />
             <div className="relative z-0 bg-primary">
               <Contact />
             </div>
             <Footer />
-            <HireMe />
           </div>
         </Suspense>
       </div>

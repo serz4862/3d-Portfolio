@@ -1,12 +1,10 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { motion } from "framer-motion";
 import { slideIn } from "../utils/motion";
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
-import emailjs from "@emailjs/browser";
 import { personalInfo, publicUrls } from "../constants";
-import Modal from "./Modal";
 import Toast from "./Toast";
 
 const Contact = () => {
@@ -17,60 +15,52 @@ const Contact = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
-  const [modalContent, setModalContent] = useState({
-    title: "",
-    message: "",
-    buttonText: "",
-  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const formData = new FormData(formRef.current);
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: personalInfo.fullName,
-          from_email: form.email,
-          to_email: personalInfo.email,
+    if (formData.get("company")) {
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${personalInfo.email}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
           message: form.message,
-          reply_to: form.email,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setToastMessage("Message sent successfully! I'll get back to you soon.");
-          setToastType("success");
-          setShowToast(true);
+          _subject: `Portfolio enquiry from ${form.name}`,
+          _template: "table",
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || result.success === false) throw new Error("Message delivery failed");
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          console.log("Error while sending mail ", error);
-          setToastMessage("Oops! Something went wrong. Please try again.");
-          setToastType("error");
-          setShowToast(true);
-        }
-      )
-      .finally(() => setLoading(false));
+      setToastMessage("Message sent — thank you. I’ll reply as soon as I can.");
+      setToastType("success");
+      setShowToast(true);
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Contact form delivery error", error);
+      setToastMessage(`The form could not send. Please email ${personalInfo.email} directly.`);
+      setToastType("error");
+      setShowToast(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -101,12 +91,19 @@ const Contact = () => {
 
           <p className={styles.sectionSubText}>Get in touch</p>
           <h3 className={styles.sectionHeadText}>Contact.</h3>
+          <p className="mt-4 max-w-lg text-sm leading-6 text-white/60">
+            Send a project brief, opportunity, or just say hello. Messages are routed to{" "}
+            <a href={`mailto:${personalInfo.email}`} className="font-semibold text-sky-300 hover:text-white">
+              {personalInfo.email}
+            </a>.
+          </p>
 
           <form
             ref={formRef}
             onSubmit={handleSubmit}
             className="mt-12 flex flex-col gap-8"
           >
+            <input type="text" name="company" tabIndex="-1" autoComplete="off" className="hidden" aria-hidden="true" />
             <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your Name</span>
               <motion.input
@@ -114,6 +111,10 @@ const Contact = () => {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
+                required
+                minLength={2}
+                maxLength={80}
+                autoComplete="name"
                 placeholder="What's your name?"
                 className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-2 border-transparent focus:border-electric-purple font-medium transition-all duration-300"
                 whileFocus={{ scale: 1.02 }}
@@ -127,6 +128,9 @@ const Contact = () => {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
+                required
+                maxLength={120}
+                autoComplete="email"
                 placeholder="What's your email address?"
                 className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-2 border-transparent focus:border-electric-purple font-medium transition-all duration-300"
                 whileFocus={{ scale: 1.02 }}
@@ -140,6 +144,9 @@ const Contact = () => {
                 name="message"
                 value={form.message}
                 onChange={handleChange}
+                required
+                minLength={10}
+                maxLength={2000}
                 placeholder="Tell me about your project or opportunity."
                 className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-2 border-transparent focus:border-electric-purple font-medium transition-all duration-300 resize-none"
                 whileFocus={{ scale: 1.02 }}
