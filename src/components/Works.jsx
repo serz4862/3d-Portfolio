@@ -13,6 +13,7 @@ const ProjectCard = ({
   description,
   tags,
   image,
+  cover,
   hosted_link,
 }) => {
   return (
@@ -31,12 +32,26 @@ const ProjectCard = ({
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
-          <img
-            src={image}
-            alt="project-image"
-            className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
-            loading="lazy"
-          />
+          {image ? (
+            <img
+              src={image}
+              alt="project-image"
+              className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+          ) : (
+            <div
+              className="w-full h-full rounded-2xl flex flex-col justify-end p-6"
+              style={{
+                background: `linear-gradient(145deg, ${cover.from}, ${cover.to})`,
+              }}
+            >
+              <span className="text-[11px] uppercase tracking-[0.2em] text-white/75">
+                {cover.kicker}
+              </span>
+              <span className="text-white text-3xl font-black mt-2">{name}</span>
+            </div>
+          )}
 
           <motion.div 
             className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"

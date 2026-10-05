@@ -15,6 +15,7 @@ const NowBuilding = lazy(() => import("./components/NowBuilding"));
 const Stats = lazy(() => import("./components/Stats"));
 const Experience = lazy(() => import("./components/Experience"));
 const SkillsProgress = lazy(() => import("./components/SkillsProgress"));
+const AgentLab = lazy(() => import("./components/AgentLab"));
 const Tech = lazy(() => import("./components/Tech"));
 const Works = lazy(() => import("./components/Works"));
 const Testimonials = lazy(() => import("./components/Testimonials"));
@@ -42,6 +43,7 @@ const App = () => {
             <Stats />
             <Experience />
             <SkillsProgress />
+            <AgentLab />
             <Tech />
             <Works />
             <Testimonials />

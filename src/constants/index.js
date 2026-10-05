@@ -144,6 +144,7 @@ const experiences = [
   {
     title: "Full-Stack AI Engineer",
     company_name: "Bluemoon Marketing",
+    company_website: "https://kpi.bluemoonmarketing.com.au/",
     monogram: "BM",
     iconBg: "#38bdf8",
     date: "Sep 2025 – Present",
@@ -159,6 +160,7 @@ const experiences = [
   {
     title: "Full Stack Developer & Team Lead",
     company_name: "Fieldnerve",
+    company_website: "https://fieldnerve.com/",
     monogram: "FN",
     iconBg: "#34d399",
     date: "Sep 2024 – Sep 2026",
@@ -218,6 +220,30 @@ const education = [
 ];
 
 const projects = [
+  {
+    name: "PerformanceKPI",
+    description:
+      "Multi-tenant performance workspace for Bluemoon Marketing. Daily KPI self-reviews, monthly manager ratings, and quarterly PMS with director sign-off, plus leave, attendance, and an audit trail. An LLM layer turns the scores into leadership briefings.",
+    tags: [
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "aws", color: "green-text-gradient" },
+      { name: "applied-ai", color: "pink-text-gradient" },
+    ],
+    cover: { kicker: "Live · Bluemoon", from: "#0284c7", to: "#0f172a" },
+    hosted_link: "https://kpi.bluemoonmarketing.com.au/",
+  },
+  {
+    name: "FieldNerve",
+    description:
+      "GenAI-native, offline-first infrastructure intelligence platform. Agentic automation across construction, rail, mining, and industrial sites — field activity, planning, and risk in one operational command surface.",
+    tags: [
+      { name: "agentic-ai", color: "blue-text-gradient" },
+      { name: "react", color: "green-text-gradient" },
+      { name: "node.js", color: "pink-text-gradient" },
+    ],
+    cover: { kicker: "Live · FieldNerve", from: "#059669", to: "#042f2e" },
+    hosted_link: "https://fieldnerve.com/",
+  },
   {
     name: "Book My Jet",
     description:
@@ -342,13 +368,67 @@ const personalInfo = {
   projectsIntro: `A few products I have shipped or shaped: marketplaces, service platforms, and early-stage builds. Each one is a live surface, not a mock. They sit next to the day job — applied AI, agentic systems, and the cloud work that keeps startups moving.`,
 };
 
-const skillGroups = [
-  { name: "React, Next.js & TypeScript", percentage: 95, icon: "⚛️" },
-  { name: "Python, LLMs & Agentic Systems", percentage: 92, icon: "🤖" },
-  { name: "LangChain, LangGraph & RAG", percentage: 90, icon: "🧠" },
-  { name: "Node.js, REST & GraphQL", percentage: 92, icon: "🟢" },
-  { name: "AWS, Docker, Nginx & EC2", percentage: 88, icon: "☁️" },
-  { name: "PostgreSQL, MongoDB & Redis", percentage: 87, icon: "🗄️" },
+const skillLanes = [
+  {
+    title: "AI & Agents",
+    blurb: "Models that finish a job, and know when to hand it to a person.",
+    items: [
+      {
+        name: "Agentic systems",
+        percentage: 93,
+        icon: "🤖",
+        tools: ["LangGraph", "tool use", "memory", "handoff"],
+      },
+      {
+        name: "RAG pipelines",
+        percentage: 91,
+        icon: "📚",
+        tools: ["retrieval", "citations", "confidence"],
+      },
+      {
+        name: "LLMs in production",
+        percentage: 90,
+        icon: "✨",
+        tools: ["OpenAI", "Claude", "evals"],
+      },
+      {
+        name: "Python for applied AI",
+        percentage: 88,
+        icon: "🐍",
+        tools: ["Python", "data", "orchestration"],
+      },
+    ],
+  },
+  {
+    title: "Product & Cloud",
+    blurb: "The product and the infrastructure the agent actually runs on.",
+    items: [
+      {
+        name: "React, Next.js & TypeScript",
+        percentage: 95,
+        icon: "⚛️",
+        tools: ["Next.js", "React", "TypeScript"],
+      },
+      {
+        name: "APIs",
+        percentage: 92,
+        icon: "🔌",
+        tools: ["REST", "GraphQL", "Node.js"],
+      },
+      {
+        name: "AWS & delivery",
+        percentage: 88,
+        icon: "☁️",
+        tools: ["EC2", "Docker", "Nginx", "CI/CD"],
+      },
+      {
+        name: "Data stores",
+        percentage: 87,
+        icon: "🗄️",
+        tools: ["PostgreSQL", "MongoDB", "Redis"],
+      },
+    ],
+  },
 ];
 
 const publicUrls = {
@@ -377,5 +457,5 @@ export {
   navigationPaths,
   personalInfo,
   publicUrls,
-  skillGroups,
+  skillLanes,
 };

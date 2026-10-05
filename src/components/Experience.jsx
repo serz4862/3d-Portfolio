@@ -23,27 +23,25 @@ const TimelineCard = ({ item }) => {
       }}
       contentArrowStyle={{ borderRight: "7px solid #915eff" }}
       icon={
-        item.icon ? (
-          <motion.a
-            href={item.company_website || undefined}
-            target={item.company_website ? "_blank" : undefined}
-            rel={item.company_website ? "noopener noreferrer" : undefined}
-            className="flex justify-center items-center w-full h-full"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
+        <a
+          href={item.company_website || undefined}
+          target={item.company_website ? "_blank" : undefined}
+          rel={item.company_website ? "noopener noreferrer" : undefined}
+          className="flex justify-center items-center w-full h-full"
+        >
+          {item.icon ? (
             <img
               src={item.icon}
               alt={item.company_name}
               className="w-[60%] h-[60%] object-contain"
               loading="lazy"
             />
-          </motion.a>
-        ) : (
-          <span className="text-white font-black text-[15px] tracking-tight">
-            {item.monogram}
-          </span>
-        )
+          ) : (
+            <span className="text-white font-black text-[15px] tracking-tight">
+              {item.monogram}
+            </span>
+          )}
+        </a>
       }
       iconStyle={{
         background: item.iconBg,
@@ -64,9 +62,21 @@ const TimelineCard = ({ item }) => {
             </span>
           )}
         </div>
-        <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>
-          {item.company_name}
-        </p>
+        {item.company_website ? (
+          <a
+            href={item.company_website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-secondary text-[16px] font-semibold hover:text-white"
+            style={{ margin: 0 }}
+          >
+            {item.company_name}
+          </a>
+        ) : (
+          <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>
+            {item.company_name}
+          </p>
+        )}
         {item.location && (
           <p className="text-white-100/70 text-[13px] mt-1">{item.location}</p>
         )}
