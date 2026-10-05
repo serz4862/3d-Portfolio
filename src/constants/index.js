@@ -18,12 +18,15 @@ import {
   mysql,
   git,
   bizav,
-  aptihealthApp,
-  Bookmyjet,
-  BadAndDesi,
   MyLocalForce,
-  QuantumCapital,
+  aptihealthApp,
   aigence,
+  performancekpi,
+  fieldnerve,
+  bookmyjetLive,
+  mylocalforceLive,
+  badanddesiLive,
+  quantumcapitalLive,
   linkedIn,
   github,
 } from "../assets";
@@ -254,89 +257,77 @@ const projects = [
   },
   {
     name: "PerformanceKPI",
+    role: "Full-Stack AI Engineer",
     description:
-      "Multi-tenant performance workspace for Bluemoon Marketing. Daily KPI self-reviews, monthly manager ratings, and quarterly PMS with director sign-off, plus leave, attendance, and an audit trail. An LLM layer turns the scores into leadership briefings.",
+      "Multi-tenant performance workspace for Bluemoon Marketing. Daily KPI self-reviews, monthly manager ratings, and quarterly PMS with director sign-off, plus leave, attendance, and an audit trail.",
+    agent:
+      "An LLM layer turns those scores into leadership briefings, the same applied-AI habit as the support agent: synthesize the record, then hand a person something they can act on.",
     tags: [
       { name: "next.js", color: "blue-text-gradient" },
       { name: "aws", color: "green-text-gradient" },
       { name: "applied-ai", color: "pink-text-gradient" },
     ],
-    cover: { kicker: "Live · Bluemoon", from: "#0284c7", to: "#0f172a" },
+    image: performancekpi,
     hosted_link: "https://kpi.bluemoonmarketing.com.au/",
   },
   {
     name: "FieldNerve",
+    role: "Founding Engineer",
     description:
-      "GenAI-native, offline-first infrastructure intelligence platform. Agentic automation across construction, rail, mining, and industrial sites — field activity, planning, and risk in one operational command surface.",
+      "GenAI-native, offline-first infrastructure platform. Construction, rail, mining, and industrial sites share one command surface for field activity, planning, and risk.",
+    agent:
+      "Agentic automation sits on the jobsite data: it anticipates delay and cost before they show up in a spreadsheet, and keeps the field record usable when the network drops.",
     tags: [
       { name: "agentic-ai", color: "blue-text-gradient" },
       { name: "react", color: "green-text-gradient" },
       { name: "node.js", color: "pink-text-gradient" },
     ],
-    cover: { kicker: "Live · FieldNerve", from: "#059669", to: "#042f2e" },
+    image: fieldnerve,
     hosted_link: "https://fieldnerve.com/",
   },
   {
     name: "Book My Jet",
+    role: "Team Lead",
     description:
-      "THE PREMIER PLATFORM FOR AIR CHARTER SOURCING WORLDWIDE. Comprehensive aviation marketplace with React Native mobile app connecting clients with private jet services globally.",
+      "Private jet charter marketplace. Operators, brokers, and passengers search a live fleet, compare quotes, and book without a monthly membership.",
+    agent:
+      "Built the web and mobile surfaces and the APIs behind real-time aircraft search, quotes, and booking for a distributed team.",
     tags: [
-      {
-        name: "react-native",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "nextjs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "nodejs",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "next.js", color: "green-text-gradient" },
+      { name: "node.js", color: "pink-text-gradient" },
     ],
-    image: Bookmyjet,
+    image: bookmyjetLive,
     hosted_link: "https://www.bookmyjet.co/",
   },
   {
     name: "My Local Force",
+    role: "Team Lead",
     description:
-      "A comprehensive digital solutions platform for Australian businesses. Built with Next.js, featuring AI-powered solutions, cloud infrastructure, and modern web technologies.",
+      "0-to-1 service platform for Australian businesses. Customers discover local services, book, pay, and manage requests on the web and in the mobile apps.",
+    agent:
+      "The matching layer recommends services from the live catalog, backed by PostgreSQL schemas that keep that logic available for a remote team.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "react",
-        color: "green-text-gradient",
-      },
-      {
-        name: "nodejs",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "node.js", color: "green-text-gradient" },
+      { name: "postgresql", color: "pink-text-gradient" },
     ],
-    image: MyLocalForce,
+    image: mylocalforceLive,
     hosted_link: "https://mylocalforce.com.au/",
   },
   {
     name: "Bad and Desi",
+    role: "Product build",
     description:
-      "A modern e-commerce web application showcasing innovative design and seamless user experience. Built with Next.js and React for exceptional performance and engagement.",
+      "Global platform for South Asian creators. Verified creators post projects, emerging talent applies, and collaborations stay on one map.",
+    agent:
+      "Profiles, project posts, and the creator atlas sit in one Next.js app so a collab does not die in a spreadsheet.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "react",
-        color: "green-text-gradient",
-      },
-      {
-        name: "typescript",
-        color: "pink-text-gradient",
-      },
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "react", color: "green-text-gradient" },
+      { name: "typescript", color: "pink-text-gradient" },
     ],
-    image: BadAndDesi,
+    image: badanddesiLive,
     hosted_link: "https://www.badanddesi.com/",
   },
   {
@@ -357,28 +348,23 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
+    role: "Product build",
     image: aptihealthApp,
     hosted_link: "https://apps.apple.com/us/app/aptihealth/id1477170874",
   },
   {
     name: "Quantum Capital",
+    role: "Product build",
     description:
-      "Quantum Capital is a leading investment firm that provides capital to early-stage startups. It is a venture capital firm that invests in startups that are at the early stage of their growth.",
+      "Startup ecosystem for founders and investors. AI-generated sites and apps, automation, and funding connections in one platform.",
+    agent:
+      "The product walks a company from a first build to investor matching, with the same system of record on both sides of the table.",
     tags: [
-      {
-        name: "Nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "typescript",
-        color: "green-text-gradient",
-      },
-      {
-        name: "AI/ML",
-        color: "pink-text-gradient",
-      },
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "typescript", color: "green-text-gradient" },
+      { name: "ai", color: "pink-text-gradient" },
     ],
-    image: QuantumCapital,
+    image: quantumcapitalLive,
     hosted_link: "https://quantum-capital.vercel.app/",
   },
  

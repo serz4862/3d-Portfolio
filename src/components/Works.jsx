@@ -24,18 +24,14 @@ const ProjectCard = ({
       variants={fadeIn("up", "spring", index * 0.2, 0.75)}
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3 }}
-      className={featured ? "w-full" : ""}
+      className="w-full"
     >
       <Tilt
-        options={{ max: featured ? 8 : 45, scale: 1, speed: 450 }}
-        className={`bg-tertiary p-5 rounded-2xl w-full hover:shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300 ${
-          featured ? "" : "sm:w-[360px]"
-        }`}
+        options={{ max: 8, scale: 1, speed: 450 }}
+        className="bg-tertiary p-5 rounded-2xl w-full hover:shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300"
       >
         <motion.div
-          className={`relative w-full cursor-pointer overflow-hidden rounded-2xl group ${
-            featured ? "h-[280px] sm:h-[420px]" : "h-[230px]"
-          }`}
+          className="relative w-full h-[280px] sm:h-[420px] cursor-pointer overflow-hidden rounded-2xl group"
           onClick={() => window.open(hosted_link, "_blank")}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
@@ -44,7 +40,7 @@ const ProjectCard = ({
             <img
               src={image}
               alt="project-image"
-              className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full object-cover object-top rounded-2xl transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
             />
           ) : (
@@ -84,7 +80,8 @@ const ProjectCard = ({
         <div className="mt-5">
           {role && (
             <p className="text-sky-300 text-xs font-bold tracking-[0.18em] uppercase mb-2">
-              {role} · Priority
+              {role}
+              {featured ? " · Priority" : ""}
             </p>
           )}
           <motion.h3 
@@ -138,7 +135,7 @@ const Works = () => {
       </div>
 
       <motion.div 
-        className="mt-20 flex flex-wrap gap-7 justify-center"
+        className="mt-16 flex flex-col gap-10"
         initial="hidden"
         animate="show"
       >

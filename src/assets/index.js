@@ -39,6 +39,12 @@ import MyLocalForce from "./company/mylocalforce.png";
 import QuantumCapital from "./company/quantumcapital.png";
 import aptihealthApp from "./projects/aptihealthApp.png";
 import aigence from "./projects/aigence.png";
+import performancekpi from "./projects/performancekpi.jpg";
+import fieldnerve from "./projects/fieldnerve.jpg";
+import bookmyjetLive from "./projects/bookmyjet.jpg";
+import mylocalforceLive from "./projects/mylocalforce.jpg";
+import badanddesiLive from "./projects/badanddesi.jpg";
+import quantumcapitalLive from "./projects/quantumcapital.jpg";
 
 export {
   logo,
@@ -77,6 +83,12 @@ export {
   aptihealthWeb,
   aptihealthApp,
   aigence,
+  performancekpi,
+  fieldnerve,
+  bookmyjetLive,
+  mylocalforceLive,
+  badanddesiLive,
+  quantumcapitalLive,
   BadAndDesi,
   MyLocalForce,
   QuantumCapital,
